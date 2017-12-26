@@ -1,0 +1,25 @@
+{
+  "name": "reddtwit",
+  "version": "1.0.0",
+  "description": "Twitter bot that tweets from your favorite subreddits.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewmarion/ReddTwit.git"
+  },
+  "author": "Matthew Marion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewmarion/ReddTwit/issues"
+  },
+  "homepage": "https://github.com/matthewmarion/ReddTwit#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "snoostorm": "0.0.5",
+    "snoowrap": "^1.15.1",
+    "twit": "^2.2.9"
+  }
+}
