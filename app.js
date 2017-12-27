@@ -28,7 +28,12 @@ redditStream.on('submission', function(post) {
 });
 
 let postTweet = function(author, title, url) {
-	let tweetText = title + " by " + author + '. Read more: ' + url;
+	let tweetText;
+	if (titleEndsInPeriod(title)){
+		tweetText = title + ' Post by ' + author + '. Read more: ' + url
+	} else {
+		tweetText = title + '. Post by ' + author + '. Read more: ' + url
+	}
 	twitter.post('statuses/update',
 	{
 		status: tweetText,
@@ -38,4 +43,11 @@ let postTweet = function(author, title, url) {
 			}
 		}
 	})
+}
+
+let titleEndsInPeriod = function(title) {
+	if (title.subtr(title.length - 1) === '.') {
+		return true;
+	} 
+	return false;
 }
