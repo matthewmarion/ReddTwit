@@ -43,11 +43,11 @@ let postTweet = function(author, title, url) {
 			}
 		}
 	})
-}
+};
 
 let titleEndsInPeriod = function(title) {
 	if (title.toString().substr(title.length - 1) === '.') {
 		return true;
 	} 
 	return false;
-}
+};
