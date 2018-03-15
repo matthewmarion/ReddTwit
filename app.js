@@ -4,7 +4,6 @@ const twit = require('twit');
 const snoowrap = require('snoowrap');
 const snoostorm = require('snoostorm');
 const config = require('./config.js');
-
 const twitter = new twit(config);
 
 const reddit = new snoowrap({
@@ -27,13 +26,11 @@ redditStream.on('submission', function(post) {
 	postTweet(post.author.name, post.title, post.url);
 });
 
-let postTweet = function(author, title, url) {
-	let tweetText;
-	if (titleEndsInPeriod(title)){
-		tweetText = title + ' Post by ' + author + '. Read more: ' + url
-	} else {
-		tweetText = title + '. Post by ' + author + '. Read more: ' + url
-	}
+const postTweet = function(author, title, url) {
+	let tweetText = titleEndsInPeriod(title) ? 
+	title + ' Post by ' + author + '. Read more: ' + url : 
+	title + '. Post by ' + author + '. Read more: ' + url;
+	
 	twitter.post('statuses/update',
 	{
 		status: tweetText,
@@ -42,7 +39,7 @@ let postTweet = function(author, title, url) {
 				console.log("Error : " + err);
 			}
 		}
-	})
+	});
 };
 
 let titleEndsInPeriod = function(title) {
